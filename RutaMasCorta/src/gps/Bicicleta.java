@@ -19,13 +19,43 @@ public class Bicicleta {
         int sum2 = 0;
         int sum3 = 0;
         
-        for(int i=0; i<camino1.length; i++)
-        {
-            sum1 += camino1[i];
-            sum2 += camino2[i];
-            sum3 += camino3[i];
-        }
+/*********** APORTACION AL CODIGO PARA SOLUCIONAR EL FALLO ****************/
+        int c1 = camino1.length;
+        int c2 = camino2.length;
+        int c3 = camino3.length;
+        int cmax = 0;
         
+        		if (c1<c2 && c3<c2) {
+        			cmax=c2;
+        		}else if (c2<c3 && c1<c3) {
+        			cmax=c3;
+        		}else {
+        			cmax =c1;
+        		}
+       
+        		int j = 0;
+            	int r = 0; 
+            	int p = 0;
+            	
+            	for(int i=0; i<=cmax; i++) {
+                    
+                    if (j<=c1-1) {
+            		sum1 += camino1[j];
+            		 j++;
+                    }
+                    if	(r<=c2-1) {
+            		sum2 += camino2[r];
+            		 r++;
+                    }
+                    if (p<=c3-1) {
+            		sum3 += camino3[p];
+            		 p++;
+                    }
+                }
+                
+ /**************************************************************************/          	
+            	
+
         if(sum1 < sum2 && sum1 < sum3)
         {
             return "camino 1"; 
